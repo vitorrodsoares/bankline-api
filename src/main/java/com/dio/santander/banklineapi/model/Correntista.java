@@ -1,11 +1,29 @@
 package com.dio.santander.banklineapi.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tab_correntista")
+
 public class Correntista {
+	@Id
+	@GeneratedValue(stratedy= GenerationType.IDENTITY)
 	private Integer id;
+	@Column(lenght = 20)
 	private String cpf;
+	@Column(lenght = 60)
 	private String nome;
 	
+	@Embedded
 	private Conta conta;
+	
+	
 	public Conta getConta() {
 		return conta;
 	}
